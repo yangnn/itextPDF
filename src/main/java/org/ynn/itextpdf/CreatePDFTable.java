@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
+import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.GrayColor;
 import com.itextpdf.text.pdf.PdfPCell;
@@ -24,7 +25,7 @@ public class CreatePDFTable {
 	
 	//PDF中生成table，并设置table的行数、列数
 	public static void createTable(String dest) throws FileNotFoundException, DocumentException{
-		Document document = new Document();
+		Document document = new Document(PageSize.A4.rotate());//设置PDF大小
 		PdfWriter.getInstance(document, new FileOutputStream(dest));
 		
 		PdfPTable table = new PdfPTable(4);
